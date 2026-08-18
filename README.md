@@ -1,10 +1,10 @@
-Linux System Update Script
+# Linux System Update Script
 
 A simple Bash script that automatically detects available Linux package managers and runs the appropriate system update and cleanup commands.
 
 The script is designed to work across several Linux distributions, including Debian/Ubuntu, Fedora, Arch Linux, openSUSE, systems using Snap or Flatpak, and OSTree-based systems such as Bazzite.
 
-Features
+## Features
 Displays the current:
 Username
 Hostname
@@ -33,9 +33,9 @@ Zypper	Refresh, update
 OSTree	Pull updates
 Requirements
 
-The script requires:
+## The script requires:
 
-Bash
+### Bash
 A supported Linux distribution
 sudo privileges for commands that require administrative access
 
@@ -45,7 +45,7 @@ On Debian/Ubuntu, you can install it with:
 
 sudo apt install lsb-release
 
-Installation
+## Installation
 
 Clone or download the script and make it executable:
 
