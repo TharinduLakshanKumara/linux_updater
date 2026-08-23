@@ -47,7 +47,11 @@ print_header() {
 }
 
 run_if_exists() {
-  command -v "$1" >/dev/null 2>&1 || return # If the command does not exist, return from the function without executing the rest of the code
+  # command is a built-in Bash command used to check whether a command/program is available. 
+  # The "command -v" is used to check if a command exists in the system. If available it will return the path of the command, otherwise it will return nothing.
+  # What is passing to the function looks like 'apt sudo apt update -y'. It designed this way so that always the first argument is the package name instead sudo.
+  command -v "$1" >/dev/null 2>&1 || return # 'command -v apt sudo apt update -y' and 'command -v $1' will execute 'command -v apt'. 
+  # If the command does not exist, return from the function without executing the rest of the code
   # When executed "run_if_exists flatpak flatpak update -y", $1 will be "flatpak", $2 will be flatpak, $3 will be update, $4 will be -y, but first "flatpak" is used to check if the package is installed.
   # If the package exists, the first "flatpack" is no longer needed and we want just "flatpak update -y".
   # To remove the first "flatpak", we use "shift" which shifts the positional parameters to the left, so $2 becomes $1, $3 becomes $2, and so on. After the shift, $1 will be "flatpak", $2 will be "update", and $3 will be "-y".
